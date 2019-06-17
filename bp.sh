@@ -12,3 +12,7 @@ cf create-service p.mysql db-small tracker-database
 cf service tracker-database
 
 cf bind-service pal-tracker tracker-database
+
+cf set-env pal-tracker MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE "*"
+cf set-env pal-tracker MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS always
+cf restage pal-tracker
